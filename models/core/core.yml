@@ -2,7 +2,7 @@ version: 2
 
 models:
     - name: dim_circuits
-      description: '{{ doc("dim_circuits") }}'
+      description: "This table contains dimensional data related to F1 circuits."
       columns:
           - name: dim_circuit_id
             description: "The primary key for this table, each circuit is distinct"
@@ -157,7 +157,7 @@ models:
             description: "The primary key for this table."
             tests:
                 - unique
-                - not_null     
+                - not_null
           - name: race_id
             description: '{{ doc("race_id_def") }}'
           - name: driver_id
@@ -173,7 +173,7 @@ models:
           - name: pit_stop_duration
             description: '{{ doc("pit_stop_duration_def") }}'
           - name: pit_stop_milliseconds
-            description: '{{ doc("pit_stop_milliseconds_def") }}'  
+            description: '{{ doc("pit_stop_milliseconds_def") }}'
 
     - name: fct_qualifying
       description: "Fact data around qualifying times."
@@ -352,7 +352,7 @@ models:
           - name: status_id
             description: '{{ doc("status_id_def") }}'
 
-                
+
     - name: dim_status
       description: "Status codes mapping."
       columns:

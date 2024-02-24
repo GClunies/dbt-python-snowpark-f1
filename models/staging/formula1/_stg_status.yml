@@ -1,0 +1,13 @@
+version: 2
+
+models:
+    - name: stg_status
+      description: "Status codes mapping."
+      columns:
+          - name: status_id
+            description: "The primary key for this table."
+            tests:
+                - unique
+                - not_null
+          - name: status
+            description: '{{ doc("status_def") }}'

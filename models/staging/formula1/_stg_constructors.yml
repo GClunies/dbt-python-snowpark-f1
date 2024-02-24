@@ -1,0 +1,19 @@
+version: 2
+
+models:
+    - name: stg_constructors
+      description: '{{ doc("stg_constructors_desc") }}'
+      columns:
+          - name: constructor_id
+            description: "The primary key for this table, each team has its own id."
+            tests:
+                - unique
+                - not_null
+          - name: constructor_ref
+            description: '{{ doc("constructor_ref_def") }}'
+          - name: constructor_name
+            description: '{{ doc("constructor_name_def") }}'
+          - name: constructor_nationality
+            description: '{{ doc("constructor_nationality_def") }}'
+          - name: constructor_url
+            description: '{{ doc("constructor_url_def") }}'

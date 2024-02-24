@@ -1,0 +1,27 @@
+version: 2
+
+models:
+    - name: stg_circuits
+      description: '{{ doc("stg_circuit_desc") }}'
+      columns:
+          - name: circuit_id
+            description: "The primary key for this table, each circuit is distinct"
+            tests:
+                - unique
+                - not_null
+          - name: circuit_ref
+            description: '{{ doc("circuit_ref_def") }}'
+          - name: circuit_name
+            description: '{{ doc("circuit_name_def") }}'
+          - name: circuit_location
+            description: '{{ doc("circuit_location_def") }}'
+          - name: circuit_country
+            description: '{{ doc("circuit_country_def") }}'
+          - name: latitude
+            description: '{{ doc("circuit_lat_def") }}'
+          - name: longitude
+            description: '{{ doc("circuit_lng_def") }}'
+          - name: altitude
+            description: '{{ doc("circuit_alt_def") }}'
+          - name: circuit_url
+            description: '{{ doc("circuit_url_def") }}'

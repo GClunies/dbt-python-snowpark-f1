@@ -1,0 +1,41 @@
+version: 2
+
+models:
+    - name: stg_sprint_results
+      description: "Fact data around qualifying times."
+      columns:
+          - name: result_id
+            description: "The primary key for this table."
+            tests:
+                - unique
+                - not_null
+          - name: race_id
+            description: '{{ doc("race_id_def") }}'
+          - name: driver_id
+            description: '{{ doc("driver_id_def") }}'
+          - name: constructor_id
+            description: '{{ doc("constructor_id_def") }}'
+          - name: driver_number
+            description: '{{ doc("driver_number_def") }}'
+          - name: grid
+            description: '{{ doc("grid_def") }}'
+          - name: driver_position
+            description: '{{ doc("driver_position_def") }}'
+          - name: position_text
+            description: '{{ doc("position_text_def") }}'
+          - name: position_order
+            description: '{{ doc("position_order_def") }}'
+          - name: points
+            description: '{{ doc("points_def") }}'
+          - name: laps
+            description: '{{ doc("laps_def") }}'
+          - name: sprint_time
+            description: '{{ doc("sprint_time_def") }}'
+          - name: milliseconds
+            description: '{{ doc("results_milliseconds_def") }}'
+          - name: fastest_lap
+            description: '{{ doc("fastest_lap_def") }}'
+          - name: fastest_lap_time
+            description: '{{ doc("fastest_lap_time_def") }}'
+          - name: status_id
+            description: '{{ doc("status_id_def") }}'

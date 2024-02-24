@@ -405,4 +405,3 @@ The rank of the driver for the event.
 {% docs status_def %}
 The status during a race such as how many laps down, collision, mechanical issue, finish, etc.
 {% enddocs %}
-

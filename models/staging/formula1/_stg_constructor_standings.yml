@@ -1,0 +1,23 @@
+version: 2
+
+models:
+    - name: stg_constructor_standings
+      description: "Fact data related to constructor (ie brand) results. This is at a race level but race info isn't in this model, just the race_id."
+      columns:
+          - name: constructor_standings_id
+            description: "The primary key for this table, result has its own id."
+            tests:
+                - unique
+                - not_null
+          - name: race_id
+            description: '{{ doc("race_id_def") }}'
+          - name: constructor_id
+            description: '{{ doc("constructor_id_def") }}'
+          - name: points
+            description: '{{ doc("constructor_points_def") }}'
+          - name: constructor_position
+            description: '{{ doc("constructor_status_def") }}'
+          - name: position_text
+            description: '{{ doc("constructor_points_def") }}'
+          - name: wins
+            description: '{{ doc("constructor_wins_def") }}'
