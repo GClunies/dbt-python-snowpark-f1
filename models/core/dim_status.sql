@@ -7,7 +7,7 @@
 with
 
 statuses as (
-    select * from {{ ref('stg_status') }}
+    select * from {{ ref('stg_f1_status') }}
 ),
 
 final as (

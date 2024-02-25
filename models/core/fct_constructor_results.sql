@@ -7,7 +7,7 @@
 with
 
 constructor_results as (
-    select * from {{ ref('stg_constructor_results') }}
+    select * from {{ ref('stg_f1_constructor_results') }}
 ),
 
 final as (

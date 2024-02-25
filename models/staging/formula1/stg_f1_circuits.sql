@@ -1,6 +1,6 @@
 with
 
-circuits as (
+source as (
     select * from {{ source('formula1', 'circuits') }}
 ),
 
@@ -15,7 +15,7 @@ renamed as (
         lng as longitude,
         to_number(iff(contains(alt, 'N'), null, alt)) as altitude,
         url as circuit_url
-    from circuits
+    from source
 )
 
 select * from renamed

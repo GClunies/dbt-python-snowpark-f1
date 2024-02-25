@@ -7,7 +7,7 @@
 with
 
 sprint_results as (
-    select * from {{ ref('stg_sprint_results') }}
+    select * from {{ ref('stg_f1_sprint_results') }}
 ),
 
 final as (

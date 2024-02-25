@@ -8,7 +8,7 @@
 with
 
 qualifying as (
-    select * from {{ ref('stg_qualifying') }}
+    select * from {{ ref('stg_f1_qualifying') }}
 ),
 
 final as (

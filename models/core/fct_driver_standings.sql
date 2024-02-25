@@ -7,7 +7,7 @@
 with
 
 driver_standings as (
-    select * from {{ ref('stg_driver_standings') }}
+    select * from {{ ref('stg_f1_driver_standings') }}
 ),
 
 final as (

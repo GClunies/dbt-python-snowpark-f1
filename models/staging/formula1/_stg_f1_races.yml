@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_races
+    - name: stg_f1_races
       description: "Fact data around qualifying times."
       columns:
           - name: race_id

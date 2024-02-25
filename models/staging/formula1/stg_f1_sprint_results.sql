@@ -1,6 +1,6 @@
 with
 
-sprint_results as (
+source as (
     select * from {{ source('formula1', 'sprint_results') }}
 ),
 
@@ -37,7 +37,7 @@ renamed as (
         ) as fastest_lap_time,
 
         status_id as status_id
-    from sprint_results
+    from source
 )
 
 select * from renamed

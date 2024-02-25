@@ -1,6 +1,6 @@
 with
 
-qualifying as (
+source as (
     select * from {{ source("formula1", "qualifying") }}
 ),
 
@@ -15,7 +15,7 @@ renamed as (
         iff(contains(q1, '\N'), null, {{ convert_laptime("q1") }}) as q1_time,
         iff(contains(q2, '\N'), null, {{ convert_laptime("q2") }}) as q2_time,
         iff(contains(q3, '\N'), null, {{ convert_laptime("q3") }}) as q3_time
-    from qualifying
+    from source
 )
 
 select * from renamed

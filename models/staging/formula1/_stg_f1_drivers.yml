@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_drivers
+    - name: stg_f1_drivers
       description: "Dimensional model stage for driver attributes."
       columns:
           - name: driver_id

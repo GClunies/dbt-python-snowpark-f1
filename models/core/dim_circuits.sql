@@ -7,7 +7,7 @@
 with
 
 circuits as (
-    select * from {{ ref('stg_circuits') }}
+    select * from {{ ref('stg_f1_circuits') }}
 ),
 
 final as (

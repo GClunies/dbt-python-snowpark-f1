@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_qualifying
+    - name: stg_f1_qualifying
       description: "Fact data around qualifying times."
       columns:
           - name: qualifying_id

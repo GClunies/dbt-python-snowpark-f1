@@ -1,6 +1,6 @@
 with
 
-constructors as (
+source as (
     select * from {{ source('formula1', 'constructors') }}
 ),
 
@@ -11,7 +11,7 @@ renamed as (
         name as constructor_name,
         nationality as constructor_nationality,
         url as constructor_url
-    from constructors
+    from source
 )
 
 select * from renamed

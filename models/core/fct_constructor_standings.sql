@@ -7,7 +7,7 @@
 with
 
 constructor_standings as (
-    select * from {{ ref('stg_constructor_standings') }}
+    select * from {{ ref('stg_f1_constructor_standings') }}
 ),
 
 final as (

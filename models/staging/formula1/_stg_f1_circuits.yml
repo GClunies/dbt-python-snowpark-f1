@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_circuits
+    - name: stg_f1_circuits
       description: '{{ doc("stg_circuit_desc") }}'
       columns:
           - name: circuit_id

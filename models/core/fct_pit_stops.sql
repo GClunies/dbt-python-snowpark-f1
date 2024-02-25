@@ -7,7 +7,7 @@
 with
 
 pit_stops as (
-    select * from {{ ref('stg_pit_stops') }}
+    select * from {{ ref('stg_f1_pit_stops') }}
 ),
 
 final as (

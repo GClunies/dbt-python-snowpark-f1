@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_seasons
+    - name: stg_f1_seasons
       description: "Season information"
       columns:
           - name: season_year

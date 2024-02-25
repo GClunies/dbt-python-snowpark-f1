@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_lap_times
+    - name: stg_f1_lap_times
       description: "Fact data around every lap."
       columns:
           - name: lap_times_id

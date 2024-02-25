@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_constructors
+    - name: stg_f1_constructors
       description: '{{ doc("stg_constructors_desc") }}'
       columns:
           - name: constructor_id

@@ -1,6 +1,6 @@
 with
 
-constructor_standings as (
+source as (
     select * from {{ source('formula1', 'constructor_standings') }}
 ),
 
@@ -13,7 +13,7 @@ renamed as (
         "POSITION" as constructor_position,
         position_text,
         wins
-    from constructor_standings
+    from source
 )
 
 select * from renamed

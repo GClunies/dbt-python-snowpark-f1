@@ -7,7 +7,7 @@
 with
 
 seasons as (
-    select * from {{ ref('stg_seasons') }}
+    select * from {{ ref('stg_f1_seasons') }}
 ),
 
 final as (

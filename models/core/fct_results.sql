@@ -9,7 +9,7 @@
 with
 
 results as (
-    select * from {{ ref('stg_results') }}
+    select * from {{ ref('stg_f1_results') }}
 ),
 
 final as (

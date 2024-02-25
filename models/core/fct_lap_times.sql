@@ -7,7 +7,7 @@
 with
 
 lap_times as (
-    select * from {{ ref('stg_lap_times') }}
+    select * from {{ ref('stg_f1_lap_times') }}
 ),
 
 final as (

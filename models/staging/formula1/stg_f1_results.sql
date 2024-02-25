@@ -1,6 +1,6 @@
 with
 
-results as (
+source as (
     select * from {{ source('formula1', 'results') }}
 ),
 
@@ -25,7 +25,7 @@ renamed as (
         iff(contains(fastest_lap_time, '\N'),null,{{ convert_laptime("fastest_lap_time") }}) as fastest_lap_time,
         iff(contains(fastest_lap_speed, '\N'), null, fastest_lap_speed) as fastest_lap_speed,
         status_id
-    from results
+    from source
 )
 
 select * from renamed

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_sprint_results
+    - name: stg_f1_sprint_results
       description: "Fact data around qualifying times."
       columns:
           - name: result_id

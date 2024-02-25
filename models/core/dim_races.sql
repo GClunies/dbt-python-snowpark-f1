@@ -7,7 +7,7 @@
 with
 
 races as (
-    select * from {{ ref('stg_races') }}
+    select * from {{ ref('stg_f1_races') }}
 ),
 
 final as (

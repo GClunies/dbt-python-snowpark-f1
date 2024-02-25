@@ -7,7 +7,7 @@
 with
 
 drivers as (
-    select * from {{ ref('stg_drivers') }}
+    select * from {{ ref('stg_f1_drivers') }}
 ),
 
 final as (

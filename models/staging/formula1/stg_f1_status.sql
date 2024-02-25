@@ -1,6 +1,6 @@
 with
 
-statuses as (
+source as (
     select * from {{ source('formula1','status') }}
 ),
 
@@ -8,7 +8,7 @@ renamed as (
     select
         status_id as status_id,
         status
-    from statuses
+    from source
 )
 
 select * from renamed

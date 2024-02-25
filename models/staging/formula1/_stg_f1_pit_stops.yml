@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_pit_stops
+    - name: stg_f1_pit_stops
       description: "Fact data around pitstop times."
       columns:
           - name: pitstop_id

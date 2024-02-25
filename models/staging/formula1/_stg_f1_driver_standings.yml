@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: stg_driver_standings
+    - name: stg_f1_driver_standings
       description: "Fact data for driver standings by race."
       columns:
           - name: driver_standings_id

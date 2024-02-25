@@ -1,5 +1,5 @@
-name: 'snowflake_python_workshop'
-version: '1.5.0'
+name: 'snowflake_dbt_python_formula1'
+version: '1.3.0'
 require-dbt-version: '>=1.3.0'
 config-version: 2
 
@@ -7,7 +7,7 @@ config-version: 2
 profile: 'demo_f1'
 
 # These configurations specify where dbt should look for different types of files.
-# The `source-paths` config, for example, states that models in this project can be
+# The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -18,32 +18,32 @@ snapshot-paths: ["snapshots"]
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
+ - "target"
+ - "dbt_packages"
 
 models:
-  snowflake_python_workshop:
+  snowflake_dbt_python_formula1:
     staging:
+
+  +docs:
+    node_color: "CadetBlue"
+  marts:
+  +materialized: table
+  aggregates:
+    +docs:
+      node_color: "Maroon"
+    +tags: "bi"
+
+  core:
+    +docs:
+      node_color: "#800080"
+  intermediate:
+    +docs:
+      node_color: "MediumSlateBlue"
+  ml:
+    prep:
       +docs:
-        node_color: "CadetBlue"
-
-    marts:
-      +materialized: table
-      aggregates:
-        +docs:
-          node_color: "Maroon"
-        +tags: "bi"
-
-    core:
-      +materialized: table
+        node_color: "Indigo"
+    train_predict:
       +docs:
-        node_color: "#800080"
-
-    ml:
-      +materialized: table
-      prep_encoding_splitting:
-        +docs:
-          node_color: "Indigo"
-      training_and_prediction:
-        +docs:
-          node_color: "Black"
+        node_color: "#36454f"
