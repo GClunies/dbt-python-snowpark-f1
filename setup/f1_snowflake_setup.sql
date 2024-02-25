@@ -1,6 +1,6 @@
 -- Reference: https://discourse.getdbt.com/t/setting-up-snowflake-the-exact-grant-statements-we-run/439
 
--- SIGN INTO SNOWFLAKE AS AN ADMIN USER (e.g. ACCOUNTADMIN)
+-- SIGN INTO SNOWFLAKE as AN ADMIN USER (e.g. ACCOUNTADMIN)
 -- Run the following commands to set up the roles and permissions for a typical dbt project.
 
 -- 1. Set up databases

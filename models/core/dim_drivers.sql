@@ -1,15 +1,27 @@
-WITH drivers AS (
-    SELECT 
-        driver_id               AS driver_id,
-        driver_ref              AS driver_ref,
-        driver_number           AS driver_number,
-        driver_code             AS driver_code,
-        forename                AS forename,
-        surname                 AS surname,
-        date_of_birth           AS date_of_birth,
-        driver_nationality      AS driver_nationality
-        --driver_url        AS driver_url
-    FROM {{ ref('stg_drivers') }}
+{{
+  config(
+    materialized = 'table',
+    )
+}}
+
+with
+
+drivers as (
+    select * from {{ ref('stg_drivers') }}
+),
+
+final as (
+    select
+        driver_id,
+        driver_ref,
+        driver_number,
+        driver_code,
+        forename,
+        surname,
+        date_of_birth,
+        driver_nationality
+        -- driver_url
+    from drivers
 )
 
-SELECT * FROM drivers
+select * from final
