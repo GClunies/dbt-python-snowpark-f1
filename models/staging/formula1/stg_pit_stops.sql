@@ -4,8 +4,14 @@ with
 
     renamed as (
         select
-            race_id as race_id,
-            driver_id as driver_id,
+            {{
+                dbt_utils.generate_surrogate_key(
+                    ["race_id", "driver_id", "stop"]
+                )
+            }} as pitstop_id,
+
+            race_id,
+            driver_id,
             stop as stop_number,
             lap,
             "TIME" as pit_stop_time,
@@ -15,8 +21,4 @@ with
         from pit_stops
     )
 
-select
-    {{ dbt_utils.generate_surrogate_key(["race_id", "driver_id", "stop_number"]) }}
-    as pitstop_id,
-    *
-from renamed
+select * from renamed

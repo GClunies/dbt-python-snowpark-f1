@@ -1,20 +1,18 @@
 with
 
 races  as (
-
     select * from {{ source('formula1','races') }}
-
-), 
+),
 
 renamed as (
-    select 
-        race_id as race_id,
-        "YEAR" as race_year, 
+    select
+        race_id,
+        "YEAR" as race_year,
         "ROUND" as race_round,
-        circuit_id as circuit_id,
+        circuit_id,
         name as race_name,
         "DATE" as race_date,
-        "TIME" as race_time, 
+        "TIME" as race_time,
         url as race_url,
         fp1_date,
         fp1_time,
