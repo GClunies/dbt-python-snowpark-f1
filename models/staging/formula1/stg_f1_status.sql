@@ -1,7 +1,7 @@
 with
 
 source as (
-    select * from {{ source('formula1','status') }}
+    select * from {{ source('formula1', 'status') }}
 ),
 
 renamed as (
