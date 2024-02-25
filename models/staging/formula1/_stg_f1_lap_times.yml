@@ -4,7 +4,7 @@ models:
     - name: stg_f1_lap_times
       description: "Fact data around every lap."
       columns:
-          - name: lap_times_id
+          - name: lap_time_id
             description: "The primary key for this table."
             tests:
                 - unique
@@ -15,11 +15,9 @@ models:
             description: '{{ doc("driver_id_def") }}'
           - name: lap
             description: '{{ doc("laps_def") }}'
-          - name: driver_position
+          - name: position
             description: '{{ doc("driver_position_def") }}'
           - name: lap_time_formatted
             description: '{{ doc("lap_time_def") }}'
-          - name: official_laptime
-            description: '{{ doc("official_lap_time_def") }}'
           - name: lap_time_milliseconds
             description: '{{ doc("lap_time_milliseconds_def") }}'

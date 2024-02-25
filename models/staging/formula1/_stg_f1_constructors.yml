@@ -15,5 +15,3 @@ models:
             description: '{{ doc("constructor_name_def") }}'
           - name: constructor_nationality
             description: '{{ doc("constructor_nationality_def") }}'
-          - name: constructor_url
-            description: '{{ doc("constructor_url_def") }}'

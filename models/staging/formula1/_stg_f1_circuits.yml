@@ -23,5 +23,3 @@ models:
             description: '{{ doc("circuit_lng_def") }}'
           - name: altitude
             description: '{{ doc("circuit_alt_def") }}'
-          - name: circuit_url
-            description: '{{ doc("circuit_url_def") }}'

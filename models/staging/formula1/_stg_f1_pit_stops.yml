@@ -17,11 +17,9 @@ models:
             description: '{{ doc("laps_def") }}'
           - name: lap
             description: '{{ doc("stop_number_def") }}'
-          - name: pit_stop_time
-            description: '{{ doc("pit_stop_time_def") }}'
+          - name: lap_time_formatted
+            description: '{{ doc("lap_time_def") }}'
           - name: pit_stop_duration_seconds
             description: '{{ doc("pit_stop_duration_seconds_def") }}'
-          - name: pit_stop_duration
-            description: '{{ doc("pit_stop_duration_def") }}'
           - name: pit_stop_milliseconds
             description: '{{ doc("pit_stop_milliseconds_def") }}'

@@ -13,6 +13,8 @@ models:
             description: '{{ doc("driver_ref_def") }}'
           - name: driver_number
             description: '{{ doc("driver_number_def") }}'
+          - name: driver_code
+            description: '{{ doc("driver_code_def") }}'
           - name: forename
             description: '{{ doc("driver_forename_def") }}'
           - name: surname
@@ -21,5 +23,3 @@ models:
             description: '{{ doc("driver_dob_def") }}'
           - name: driver_nationality
             description: '{{ doc("driver_nationality_def") }}'
-          - name: driver_url
-            description: '{{ doc("driver_url_def") }}'

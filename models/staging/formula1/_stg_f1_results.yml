@@ -19,7 +19,7 @@ models:
             description: '{{ doc("driver_number_def") }}'
           - name: grid
             description: '{{ doc("grid_def") }}'
-          - name: driver_position
+          - name: position
             description: '{{ doc("driver_position_def") }}'
           - name: position_text
             description: '{{ doc("position_text_def") }}'
@@ -29,15 +29,15 @@ models:
             description: '{{ doc("points_def") }}'
           - name: laps
             description: '{{ doc("laps_def") }}'
-          - name: race_time
-            description: '{{ doc("race_time_def") }}'
-          - name: milliseconds
+          - name: results_time_formatted
+            description: '{{ doc("results_time_def") }}'
+          - name: results_milliseconds
             description: '{{ doc("results_milliseconds_def") }}'
+          - name: results_rank
+            description: '{{ doc("driver_rank_def") }}'
           - name: fastest_lap
             description: '{{ doc("fastest_lap_def") }}'
-          - name: driver_rank
-            description: '{{ doc("driver_rank_def") }}'
-          - name: fastest_lap_time
+          - name: fastest_lap_time_formatted
             description: '{{ doc("fastest_lap_time_def") }}'
           - name: fastest_lap_speed
             description: '{{ doc("fastest_lap_speed_def") }}'

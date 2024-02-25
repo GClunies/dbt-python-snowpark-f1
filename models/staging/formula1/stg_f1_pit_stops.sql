@@ -1,6 +1,8 @@
 with
 
-source as (select * from {{ source('formula1', 'pit_stops') }}),
+source  as (
+    select * from {{ source('formula1','pit_stops') }}
+),
 
 renamed as (
     select
@@ -14,11 +16,12 @@ renamed as (
         driver_id,
         stop as stop_number,
         lap,
-        "TIME" as pit_stop_time,
+        time as lap_time_formatted,
         duration as pit_stop_duration_seconds,
-        {{ convert_laptime("pit_stop_duration_seconds") }} as pit_stop_duration,
         milliseconds as pit_stop_milliseconds
     from source
 )
 
-select * from renamed
+select *
+from renamed
+order by pit_stop_duration_seconds desc

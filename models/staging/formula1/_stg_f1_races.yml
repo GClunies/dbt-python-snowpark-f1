@@ -15,29 +15,27 @@ models:
             description: '{{ doc("race_round_def") }}'
           - name: circuit_id
             description: '{{ doc("circuit_id_def") }}'
-          - name: race_name
-            description: '{{ doc("race_name_def") }}'
+          - name: circuit_name
+            description: '{{ doc("circuit_name_def") }}'
           - name: race_date
             description: '{{ doc("race_date_def") }}'
           - name: race_time
             description: '{{ doc("race_time_def") }}'
-          - name: race_url
-            description: '{{ doc("race_url_def") }}'
-          - name: fp1_date
+          - name: free_practice_1_date
             description: '{{ doc("fp1_date_def") }}'
-          - name: fp1_time
+          - name: free_practice_1_time
             description: '{{ doc("fp1_time_def") }}'
-          - name: fp2_date
+          - name: free_practice_2_date
             description: '{{ doc("fp2_date_def") }}'
-          - name: fp2_time
+          - name: free_practice_2_time
             description: '{{ doc("fp2_time_def") }}'
-          - name: fp3_date
+          - name: free_practice_3_date
             description: '{{ doc("fp3_date_def") }}'
-          - name: fp3_time
+          - name: free_practice_3_time
             description: '{{ doc("fp3_time_def") }}'
-          - name: quali_date
+          - name: qualifying_date
             description: '{{ doc("quali_date_def") }}'
-          - name: quali_time
+          - name: qualifying_time
             description: '{{ doc("quali_time_def") }}'
           - name: sprint_date
             description: '{{ doc("sprint_date_def") }}'

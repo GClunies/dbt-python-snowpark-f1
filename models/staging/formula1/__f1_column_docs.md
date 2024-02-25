@@ -1,175 +1,117 @@
 {% docs circuit_id_def %}
-
 This column is the unique identifier for the circuit.
-
 {% enddocs %}
 
 {% docs circuit_ref_def %}
-
 This column contains the circuit reference code.
-
 {% enddocs %}
 
 {% docs circuit_name_def %}
-
 This column contains the name of the circuit.
-
 {% enddocs %}
 
 {% docs circuit_location_def %}
-
 This column contains the location of the circuit.
-
 {% enddocs %}
 
 {% docs circuit_country_def %}
-
 This column contains the country where the circuit is located.
-
 {% enddocs %}
 
 {% docs circuit_lat_def %}
-
 This column contains the latitude of the circuit.
-
 {% enddocs %}
 
 {% docs circuit_lng_def %}
-
 This column contains the longitude of the circuit.
-
 {% enddocs %}
 
 {% docs circuit_alt_def %}
-
 This column contains the altitude of the circuit.
-
 {% enddocs %}
 
 {% docs circuit_url_def %}
-
 This column contains the URL to the circuit's Wikipedia page.
-
 {% enddocs %}
 
 {% docs constructor_results_id_def %}
-
 This column is the unique identifier for each constructor result.
-
 {% enddocs %}
 
 {% docs race_id_def %}
-
 This column is the unique identifier for each race.
-
 {% enddocs %}
 
 {% docs constructor_points_def %}
-
 This column contains the points scored by the constructor in the race.
-
 {% enddocs %}
 
 {% docs constructor_status_def %}
-
 This column contains the constructor's status (e.g., "+1 Lap", "Finished", etc.).
-
 {% enddocs %}
 
 {% docs constructor_ref_def %}
-
 This column contains the constructor reference code.
-
 {% enddocs %}
 
 {% docs constructor_name_def %}
-
 This column contains the name of the constructor.
-
 {% enddocs %}
 
 {% docs constructor_url_def %}
-
 This column contains the URL to the constructor's Wikipedia page.
-
 {% enddocs %}
 
 {% docs driver_standings_id_def %}
-
 This column is the unique identifier for each driver standing.
-
 {% enddocs %}
 
 {% docs driver_points_def %}
-
 This column contains the total points scored by the driver in the season.
-
 {% enddocs %}
 
-{% docs driver_position_def %}
-
+{% docs driver_position_def %}df
 This column contains the driver's position in the standings.
-
 {% enddocs %}
 
 {% docs position_text_def %}
-
 This column contains the text representation of the driver's position in the standings.
-
 {% enddocs %}
 
 {% docs driver_wins_def %}
-
 This column contains the number of wins by the driver in the season.
-
 {% enddocs %}
 
 {% docs driver_ref_def %}
-
 This column contains the driver reference code.
-
 {% enddocs %}
 
 {% docs driver_number_def %}
-
 This column contains the driver's racing number.
-
 {% enddocs %}
 
 {% docs drivercode_def %}
-
 This column contains the driver's three-letter code.
-
 {% enddocs %}
 
 {% docs driverforename_def %}
-
 This column contains the driver's first name.
-
 {% enddocs %}
 
 {% docs driver_surname_def %}
-
 This column contains the driver's last name.
-
 {% enddocs %}
 
 {% docs driver_dob_def %}
-
 This column contains the driver's date of birth.
-
 {% enddocs %}
 
 {% docs driver_nationality_def %}
-
 This column contains the driver's nationality.
-
 {% enddocs %}
 
 {% docs driver_url_def %}
-
 This column contains the URL to the driver's Wikipedia page.
-
 {% enddocs %}
 
 {% docs year_def %}
@@ -222,6 +164,10 @@ The number of laps completed by the driver.
 
 {% docs race_milliseconds_def %}
 The total race time for the driver in milliseconds.
+{% enddocs %}
+
+{% docs results_time_def %}
+Time the race result was recorded.
 {% enddocs %}
 
 {% docs results_milliseconds_def %}
