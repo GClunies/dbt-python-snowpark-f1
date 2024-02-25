@@ -1,0 +1,40 @@
+version: 2
+
+models:
+    - name: fct_constructor_standings
+      description: "Fact data related to constructor (ie brand) results. This is at a race level but race info isn't in this model, just the race_id."
+      columns:
+          - name: constructor_standings_id
+            description: "The primary key for this table, result has its own id."
+            tests:
+                - unique
+                - not_null
+          - name: race_id
+            description: '{{ doc("race_id_def") }}'
+          - name: constructor_id
+            description: '{{ doc("constructor_id_def") }}'
+          - name: points
+            description: '{{ doc("constructor_points_def") }}'
+          - name: constructor_position
+            description: '{{ doc("constructor_status_def") }}'
+          - name: position_text
+            description: '{{ doc("constructor_points_def") }}'
+          - name: wins
+            description: '{{ doc("constructor_wins_def") }}'
+
+    - name: dim_constructors
+      description: "Dimensional data for the constructors (teams)."
+      columns:
+          - name: dim_constructor_id
+            description: "The primary key for this table, each team has its own id."
+            tests:
+                - unique
+                - not_null
+          - name: constructor_id
+            description: '{{ doc("constructor_id_def") }}'
+          - name: constructor_ref
+            description: '{{ doc("constructor_ref_def") }}'
+          - name: constructor_name
+            description: '{{ doc("constructor_name_def") }}'
+          - name: constructor_nationality
+            description: '{{ doc("constructor_nationality_def") }}'
