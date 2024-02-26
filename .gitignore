@@ -1,4 +1,10 @@
-.env
+# dbt artifacts
 target/
 dbt_packages/
 logs/
+
+# Environment variables
+.env
+
+# ML related files
+*.joblib
