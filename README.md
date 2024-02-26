@@ -1,7 +1,7 @@
 # ML Pipelines with Snowflake and dbt
-This demo showcases how to use Snowflake and dbt to build scalable machine learning pipelines. It is based on the code in this [dbt-labs guide](https://docs.getdbt.com/guides/dbt-python-snowpark?step=1), which I used as a referencewhile builing ML pipelines to predict user conversion and subscription churn at [Surfline](https://www.surfline.com).
+This demo showcases how to use Snowflake and dbt to build scalable machine learning pipelines. It is based on the code from this [dbt-labs guide](https://docs.getdbt.com/guides/dbt-python-snowpark?step=1), which I used as a reference while builing ML pipelines to predict user conversion and subscription churn at [Surfline](https://www.surfline.com).
 
-Upon reflection, there are some improvements that can be made to the guide's approach to building ML pipelines. This demo showcases a more efficient and maintainable approach to building ML pipelines with Snowflake and dbt.
+Upon reflection, there are improvements to be made on dbt-labs' approach. This demo provides a more efficient and realistic alternative for building ML pipelines with Snowflake and dbt.
 
 ## Slides
 - dbt & Snowflake (quick AF refresh)
