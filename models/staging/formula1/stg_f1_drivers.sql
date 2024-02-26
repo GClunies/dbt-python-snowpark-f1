@@ -6,14 +6,14 @@ source  as (
 
 renamed as (
     select
-        driverid as driver_id,
-        driverref as driver_ref,
-        number as driver_number,
-        code as driver_code,
-        forename,
-        surname,
-        dob as date_of_birth,
-        nationality as driver_nationality
+        driverid::int as driver_id,
+        driverref::text as driver_ref,
+        number::number as driver_number,
+        upper(code)::text as driver_code,
+        forename::text as forename,
+        surname::text as surname,
+        dob::date as date_of_birth,
+        nationality::text as driver_nationality
         -- omit the url
     from source
 )

@@ -24,26 +24,28 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   snowflake_dbt_python_formula1:
     staging:
-
-  +docs:
-    node_color: "CadetBlue"
-  marts:
-  +materialized: table
-  aggregates:
-    +docs:
-      node_color: "Maroon"
-    +tags: "bi"
-
-  core:
-    +docs:
-      node_color: "#800080"
-  intermediate:
-    +docs:
-      node_color: "MediumSlateBlue"
-  ml:
-    prep:
       +docs:
-        node_color: "Indigo"
-    train_predict:
+        node_color: "CadetBlue"
+
+    intermediate:
       +docs:
-        node_color: "#36454f"
+        node_color: "MediumSlateBlue"
+
+    marts:
+      +materialized: table
+      core:
+        +docs:
+          node_color: "#800080"
+
+    aggregates:
+      +docs:
+        node_color: "Maroon"
+      +tags: "bi"
+
+    ml:
+      prep:
+        +docs:
+          node_color: "Indigo"
+      train_predict:
+        +docs:
+          node_color: "#36454f"

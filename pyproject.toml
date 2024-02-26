@@ -6,8 +6,12 @@ authors = ["Greg Clunies <greg.clunies@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.10,<3.12"
 dbt-snowflake = "^1.7.2"
+snowflake-snowpark-python = "^1.12.1"
+python-dotenv = "^1.0.1"
+ipykernel = "^6.29.2"
+snowflake-ml-python = "^1.2.2"
 
 
 [build-system]

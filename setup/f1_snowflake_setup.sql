@@ -1,6 +1,6 @@
 -- Reference: https://discourse.getdbt.com/t/setting-up-snowflake-the-exact-grant-statements-we-run/439
 
--- SIGN INTO SNOWFLAKE as AN ADMIN USER (e.g. ACCOUNTADMIN)
+-- SIGN INTO SNOWFLAKE AS AN ADMIN USER (e.g. ACCOUNTADMIN)
 -- Run the following commands to set up the roles and permissions for a typical dbt project.
 
 -- 1. Set up databases
@@ -12,7 +12,7 @@ create database formula1;
 create warehouse loading
     warehouse_size = xsmall
     auto_suspend = 600  -- dbt uses 3600 (reduced since this is for testing only)
-    auto_resume = true  -- Claire's guide has `auto_resume = false`, but this prevented Segment from loading data via the Warehouse!
+    auto_resume = true  -- Guide sets to `false`, but can cause loaders (e.g., Segment, Fivetran) to fail loading jobs
     initially_suspended = true;
 
 create warehouse transforming
@@ -72,8 +72,19 @@ grant role transformer to user greg_clunies;
 grant role reporter to user hex_user;
 grant role reporter to user lightdash_user;
 
+-- Grant other roles to accountadmin and sysadmin for clean heirarchy
+grant role loader to role accountadmin;
+grant role transformer to role accountadmin;
+grant role reporter to role accountadmin;
+grant role loader to role sysadmin;
+grant role transformer to role sysadmin;
+grant role reporter to role sysadmin;
+
+
 -- 5. Let loader load data
-use role sysadmin;
+-- securityadmin / accountadmin required for FUTURE grants
+-- see: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#access-control-requirements
+use role securityadmin;
 grant all on database raw to role loader;
 -- grant usage on database raw to role loader;
 -- grant create schema on database raw to role loader;

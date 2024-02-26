@@ -6,14 +6,14 @@ source  as (
 
 renamed as (
     select
-        circuitid as circuit_id,
-        circuitref as circuit_ref,
-        name as circuit_name,
-        location,
-        country,
-        lat as latitude,
-        lng as longitude,
-        alt as altitude
+        circuitid::int as circuit_id,
+        circuitref::text as circuit_ref,
+        name::text as circuit_name,
+        location::text as location,
+        country::text as country,
+        lat::number as latitude,
+        lng::number as longitude,
+        alt::number as altitude
         -- omit the url
     from source
 )

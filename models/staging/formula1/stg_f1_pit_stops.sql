@@ -8,17 +8,17 @@ renamed as (
     select
         {{
             dbt_utils.generate_surrogate_key(
-                ["race_id", "driver_id", "stop"]
+                ["raceid", "driverid", "stop"]
             )
-        }} as pitstop_id,
+        }}::text as pitstop_id,
 
-        race_id,
-        driver_id,
-        stop as stop_number,
-        lap,
-        time as lap_time_formatted,
-        duration as pit_stop_duration_seconds,
-        milliseconds as pit_stop_milliseconds
+        raceid::int as race_id,
+        driverid::int as driver_id,
+        stop::int as stop_number,
+        lap::int as lap,
+        time::text as lap_time_formatted,
+        duration::text as pit_stop_duration_seconds,
+        milliseconds::int as pit_stop_milliseconds
     from source
 )
 

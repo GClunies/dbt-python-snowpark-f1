@@ -1,1 +1,3 @@
-admin
+analyses
+models/ml/prepare
+models/ml/train

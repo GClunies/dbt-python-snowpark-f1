@@ -6,24 +6,24 @@ source  as (
 
 renamed as (
     select
-        raceid as race_id,
-        year as race_year,
-        round as race_round,
-        circuitid as circuit_id,
-        name as circuit_name,
-        date as race_date,
+        raceid::int as race_id,
+        year::int as race_year,
+        round::int as race_round,
+        circuitid::int as circuit_id,
+        name::text as circuit_name,
+        date::date as race_date,
         to_time(time) as race_time,
         -- omit the url
-        fp1_date as free_practice_1_date,
-        fp1_time as free_practice_1_time,
-        fp2_date as free_practice_2_date,
-        fp2_time as free_practice_2_time,
-        fp3_date as free_practice_3_date,
-        fp3_time as free_practice_3_time,
-        quali_date as qualifying_date,
-        quali_time as qualifying_time,
-        sprint_date,
-        sprint_time
+        fp1_date::date as free_practice_1_date,
+        fp1_time::time as free_practice_1_time,
+        fp2_date::date as free_practice_2_date,
+        fp2_time::time as free_practice_2_time,
+        fp3_date::date as free_practice_3_date,
+        fp3_time::time as free_practice_3_time,
+        quali_date::date as qualifying_date,
+        quali_time::time as qualifying_time,
+        sprint_date::date as sprint_date,
+        sprint_time::time as sprint_time
     from source
 )
 

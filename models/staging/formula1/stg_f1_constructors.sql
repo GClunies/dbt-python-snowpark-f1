@@ -6,10 +6,10 @@ source  as (
 
 renamed as (
     select
-        constructorid as constructor_id,
-        constructorref as constructor_ref,
-        name as constructor_name,
-        nationality as constructor_nationality
+        constructorid::int as constructor_id,
+        constructorref::text as constructor_ref,
+        name::text as constructor_name,
+        nationality::text as constructor_nationality
         -- omit the url
     from source
 )

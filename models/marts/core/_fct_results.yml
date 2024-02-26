@@ -4,13 +4,11 @@ models:
     - name: fct_results
       description: "Fact data around qualifying times."
       columns:
-          - name: fct_result_id
-            description: "The primary key for this table."
+          - name: result_id
+            description: '{{ doc("result_id_def") }}'
             tests:
                 - unique
                 - not_null
-          - name: result_id
-            description: '{{ doc("result_id_def") }}'
           - name: race_id
             description: '{{ doc("race_id_def") }}'
           - name: driver_id

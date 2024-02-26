@@ -6,24 +6,24 @@ source  as (
 
 renamed as (
     select
-        resultid as result_id,
-        raceid as race_id,
-        driverid as driver_id,
-        constructorid as constructor_id,
-        number as driver_number,
-        grid,
+        resultid::int as result_id,
+        raceid::int as race_id,
+        driverid::int as driver_id,
+        constructorid::int as constructor_id,
+        number::int as driver_number,
+        grid::int as grid,
         position::int as position,
-        positiontext as position_text,
-        positionorder as position_order,
-        points,
-        laps,
-        time as results_time_formatted,
-        milliseconds as results_milliseconds,
-        rank as results_rank,
-        fastestlap as fastest_lap,
-        fastestlaptime as fastest_lap_time_formatted,
+        positiontext::text as position_text,
+        positionorder::int as position_order,
+        points::int as points,
+        laps::int as laps,
+        time::text as results_time_formatted,
+        milliseconds::int as results_milliseconds,
+        fastestlap::int as fastest_lap,
+        rank::int as results_rank,
+        fastestlaptime::text as fastest_lap_time_formatted,
         fastestlapspeed::decimal(6,3) as fastest_lap_speed,
-        statusid as status_id
+        statusid::int as status_id
     from source
 )
 

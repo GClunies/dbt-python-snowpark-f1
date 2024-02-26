@@ -1,0 +1,15 @@
+name: formula1-dbt
+channels:
+  - snowflake
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - dbt-snowflake=1.7.1
+  - snowflake-snowpark-python
+  - snowflake-ml-python
+  - python-dotenv
+  - ipykernel
+
+# To update env from this file, run:
+#  conda env update -n formula1-dbt -f environment.yml --prune

@@ -4,7 +4,7 @@ sources:
   - name: formula1
     description: formula 1 datasets with normalized tables
     database: raw
-    schema: f1
+    schema: formula1
     tables:
       - name: circuits
         description: One row per circuit, which is the specific race course.

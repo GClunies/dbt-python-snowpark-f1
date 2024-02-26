@@ -6,8 +6,8 @@ source  as (
 
 renamed as (
     select
-        statusid as status_id,
-        status
+        statusid::int as status_id,
+        status::text as status
     from source
 )
 

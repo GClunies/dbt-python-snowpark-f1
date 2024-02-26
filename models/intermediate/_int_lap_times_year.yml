@@ -1,0 +1,5 @@
+version: 2
+
+models:
+ - name: int_lap_times_years
+   description: '{{ doc("int_lap_times_years") }}'

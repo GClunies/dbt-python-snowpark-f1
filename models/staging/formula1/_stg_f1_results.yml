@@ -33,10 +33,10 @@ models:
             description: '{{ doc("results_time_def") }}'
           - name: results_milliseconds
             description: '{{ doc("results_milliseconds_def") }}'
-          - name: results_rank
-            description: '{{ doc("driver_rank_def") }}'
           - name: fastest_lap
             description: '{{ doc("fastest_lap_def") }}'
+          - name: results_rank
+            description: '{{ doc("driver_rank_def") }}'
           - name: fastest_lap_time_formatted
             description: '{{ doc("fastest_lap_time_def") }}'
           - name: fastest_lap_speed
