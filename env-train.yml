@@ -1,0 +1,15 @@
+name: f1-train
+channels:
+  - https://repo.anaconda.com/pkgs/snowflake
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - python-dotenv
+  - snowflake-ml-python=1.2.0
+  - pyarrow
+  - ipykernel
+  - numpy
+  - pandas
+  - xgboost
+  - seaborn

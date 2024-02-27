@@ -1,4 +1,4 @@
-name: formula1-dbt
+name: f1-prep
 channels:
   - conda-forge
   - https://repo.anaconda.com/pkgs/snowflake/

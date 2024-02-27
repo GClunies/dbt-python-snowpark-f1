@@ -14,12 +14,12 @@ Upon reflection, there are improvements to be made on dbt-labs' approach. This d
 
 ## Key Learnings
 
-1. Use dbt SQL to build features whenever possible. dbt SQL is easier to read and debug reltive to dbt Python.
+1. Use SQL to build features over Python. easier to read and debug.
 2. Use `snowflake-snowpark-python` and `snowflake-ml-python` libraries (optimized, parallel, fast) over `pandas` (single-thread, slow).
-3. Build preprocessing pipelines and ML models in Python notebooks over dbt Python. Use Snowpark:
+3. Build ML pipelines and models in Python notebooks over dbt Python. Use Snowpark:
    - Internal stages to store preproccesing pipelines.
    - Model registry to store ML models.
-4. dbt Python models are great to *execute ML models*... but not to *develop* them.
+4. Use dbt Python to call ML pipelines and models from Snowflake. dbt Python great to *deploy ML models*, still clunky too *develop ML models*.
 
 ## Setup
 1. Create a new Snowflake account (you'll need ACCOUNTADMIN access). [Trial accounts](https://www.snowflake.com/free-trial/) are free for 30 days.

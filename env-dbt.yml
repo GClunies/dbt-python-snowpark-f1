@@ -1,0 +1,9 @@
+name: f1-dbt
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - dbt-snowflake=1.7.1
+  - snowflake-ml-python=1.2.0
+  - pyarrow

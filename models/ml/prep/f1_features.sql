@@ -43,10 +43,10 @@ results as (
 
         case
             when position < 4
-                then 1  -- podium
+                then 0  -- podium
             when position < 11
-                then 2  -- points
-            else 3  -- no points
+                then 1  -- points
+            else 2  -- no points
         end as position_label,
 
         case
@@ -98,7 +98,7 @@ construstor_reliability as (
     group by 1
 ),
 
-final as (
+joined as (
     select
         results.result_id,
         results.race_id,
@@ -153,6 +153,72 @@ final as (
         on results.driver_id = driver_confidence.driver_id
     left join construstor_reliability
         on results.constructor_id = construstor_reliability.constructor_id
+),
+
+final as (
+    select
+        result_id,
+        race_id,
+        race_year,
+        circuit_id,
+        circuit_name,
+        circuit_ref,
+        location,
+        country,
+        latitude,
+        longitude,
+        altitude,
+        total_pit_stops_per_race,
+        race_date,
+        race_time,
+        driver_id,
+
+        -- Translate special characters to english
+        upper(
+            translate(
+                translate(
+                    translate(
+                        translate(
+                            lower(driver),
+                            'åãñõç',
+                            'aanoc'
+                        ),
+                        'âêîôû',
+                        'aeiou'
+                    ),
+                    'äëïöü',
+                    'aeiou'
+                )
+                , 'áéíóú',
+                'aeiou'
+            )
+        ) as driver,
+
+        driver_number,
+        drivers_age_years,
+        driver_nationality,
+        constructor_id,
+        constructor_name,
+        constructor_nationality,
+        grid,
+        position_label,
+        position,
+        position_text,
+        position_order,
+        points,
+        laps,
+        results_time_formatted,
+        results_milliseconds,
+        fastest_lap,
+        results_rank,
+        fastest_lap_time_formatted,
+        fastest_lap_speed,
+        status_id,
+        status,
+        dnf_flag,
+        driver_confidence,
+        constructor_reliability
+    from joined
 )
 
 select * from final
