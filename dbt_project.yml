@@ -25,7 +25,7 @@ models:
   snowflake_dbt_python_formula1:
     staging:
       +docs:
-        node_color: "#DAF7A6"
+        node_color: "#2c6181"
 
     intermediate:
       +docs:
