@@ -14,17 +14,19 @@ From this experience, I've modified my worflow from steps in the dbt-labs. My st
 ## Outline
 This demo covers the following steps:
 1. Setting up a Snowflake *from scratch* with databases, warehouses, roles, and permissions.
+   - See [`setup/f1_snowflake_setup.sql`](setup/f1_snowflake_setup.sql)
 2. Loading example Formula 1 data from a public s3 bucket into a `RAW` database in a `FORMULA1` schema in Snowflake.
-3. Using dbt SQL models to:
+   - See [`setup/f1_snowflake_load_data.sql`](setup/f1_snowflake_load_data.sql)
+3. Use dbt SQL models to:
    - Stage the raw data (renames, data type casting, etc.).
    - Create intermediate tables for feature engineering.
    - Create a data mart with fact and dimension tables.
    - Freate feature tables as input for ML models.
-4. Developing ML pipelines and models in Python notebooks to:
+4. Develop preprocessing pipelines and ML models in Python notebooks to:
    - Preprocessing data.
    - Training and testing ML models.
    - Registering the trained models to a Snowflake stage.
-5. Using dbt Python models to:
+5. Use dbt Python models to:
    - Load the trained ML pipelines and models from the Snowflake stage.
    - Apply the ML pipelines and models to data from our data mart to make predictions.
    - Store the predictions in a new table in the `FORMULA1` database.
