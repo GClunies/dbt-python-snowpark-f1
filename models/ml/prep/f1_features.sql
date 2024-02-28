@@ -43,10 +43,10 @@ results as (
 
         case
             when position < 4
-                then 0  -- podium
+                then 0           -- podium
             when position < 11
-                then 1  -- points
-            else 2  -- no points
+                then 1           -- points
+            else 2               -- no points
         end as position_label,
 
         case

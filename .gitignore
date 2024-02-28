@@ -8,3 +8,4 @@ logs/
 
 # ML related files
 *.joblib
+*.joblib.gz

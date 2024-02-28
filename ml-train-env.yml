@@ -1,4 +1,4 @@
-name: f1-train
+name: f1-ml-train
 channels:
   - https://repo.anaconda.com/pkgs/snowflake
   - conda-forge

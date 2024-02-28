@@ -25,27 +25,25 @@ models:
   snowflake_dbt_python_formula1:
     staging:
       +docs:
-        node_color: "CadetBlue"
+        node_color: "#DAF7A6"
 
     intermediate:
       +docs:
-        node_color: "MediumSlateBlue"
+        node_color: "#FFC300"
 
     marts:
       +materialized: table
       core:
         +docs:
-          node_color: "#800080"
-
-    aggregates:
-      +docs:
-        node_color: "Maroon"
-      +tags: "bi"
+          node_color: "#FF5733"
 
     ml:
       prep:
         +docs:
-          node_color: "Indigo"
-      train_predict:
+          node_color: "#C70039"
+      train:
         +docs:
-          node_color: "#36454f"
+          node_color: "#900C3F"
+      predict:
+        +docs:
+          node_color: "#581845"

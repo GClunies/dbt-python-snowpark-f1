@@ -12,13 +12,12 @@ PIPELINE_FILE = "f1_preprocess_pipeline.joblib"
 # Temporary directory to store staged files locally
 LOCAL_TEMP_DIR = "/tmp/driver_position"
 DOWNLOAD_DIR = os.path.join(LOCAL_TEMP_DIR, "download")
-TARGET_MODEL_DIR_PATH = os.path.join(LOCAL_TEMP_DIR, "ml_model")
-TARGET_LIB_PATH = os.path.join(LOCAL_TEMP_DIR, "lib")
 
 MODEL_NAME = "F1_XGB_MODEL"
-MODEL_VERSION = "V0"
+MODEL_VERSION = "V2"
 
-ORIGINAL_FEATURES = [
+INDEX = ["RESULT_ID"]  # For joins later
+FEATURES = [
     "RACE_YEAR",
     "CIRCUIT_NAME",
     "GRID",
@@ -29,16 +28,21 @@ ORIGINAL_FEATURES = [
     "CONSTRUCTOR_RELIABILITY",
     "TOTAL_PIT_STOPS_PER_RACE",
 ]
+TARGET = ["POSITION_LABEL"]  # 1 = podium, 2 = points, 3 = no points
 
 
 def model(dbt, session):
     dbt.config(
-        packages=["joblib", "snowflake-ml-python", "pyarrow"],
         materialized="table",
+        packages=[
+            "joblib",
+            "snowflake-ml-python",
+            "pyarrow",  # Required by snowflake-ml-python (but not installed by default)
+        ],
     )
 
     # Read in features
-    features_df = dbt.ref("f1_features")[ORIGINAL_FEATURES]
+    features_df = dbt.ref("f1_features")[INDEX + FEATURES]
 
     # Get the preprocessing pipeline
     session.file.get(
@@ -49,10 +53,10 @@ def model(dbt, session):
     preprocess_pipeline = joblib.load(pipeline_file_path)
 
     # Preprocess the features
-    processed_df = preprocess_pipeline.fit(features_df).transform(features_df)
+    preprocess_df = preprocess_pipeline.fit(features_df).transform(features_df)
 
-    # Keep normalized and encoded features
-    data_df = processed_df.drop(ORIGINAL_FEATURES)
+    # Only keep index, normalized features, and one hot encoded features
+    input_df = preprocess_df.drop(FEATURES)
 
     # Define the Model Registry
     native_registry = registry.Registry(
@@ -65,9 +69,23 @@ def model(dbt, session):
     model = native_registry.get_model(MODEL_NAME).version(MODEL_VERSION)
 
     # Make predictions
-    predict_df = model.run(data_df, function_name="predict")
-    final_df = predict_df.rename(
+    predict_df = model.run(input_df, function_name="predict")
+    predict_df = predict_df.rename(  # Rename the output column
         F.col('"output_feature_0"'), "PREDICTED_POSITION_LABEL"
+    )
+
+    # Join the features and predictions
+    final_df = features_df.natural_join(predict_df, "left").select_expr(
+        "RACE_YEAR",
+        "CIRCUIT_NAME",
+        "GRID",
+        "CONSTRUCTOR_NAME",
+        "DRIVER",
+        "DRIVERS_AGE_YEARS",
+        "DRIVER_CONFIDENCE",
+        "CONSTRUCTOR_RELIABILITY",
+        "TOTAL_PIT_STOPS_PER_RACE",
+        "PREDICTED_POSITION_LABEL",
     )
 
     return final_df

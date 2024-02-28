@@ -1,32 +1,15 @@
 # ML Pipelines with Snowflake and dbt
 This demo showcases how to use Snowflake and dbt to build scalable machine learning pipelines. It is based on the code from this [dbt-labs guide](https://docs.getdbt.com/guides/dbt-python-snowpark?step=1), which I used as a reference while builing ML pipelines to predict user conversion and subscription churn at [Surfline](https://www.surfline.com).
 
-Upon reflection, there are improvements to be made on dbt-labs' approach. This demo provides a more efficient and realistic alternative for building ML pipelines with Snowflake and dbt.
-
-## Slides
-- dbt & Snowflake (quick AF refresh)
-- Tradition ML Pipeline Development
-- Data Warehouse --> Data Cloud
-- dbt Python
-  - when to use
-  - when not
-- Demo
-
-## Key Learnings
-
-1. Use SQL to build features over Python. easier to read and debug.
-2. Use `snowflake-snowpark-python` and `snowflake-ml-python` libraries (optimized, parallel, fast) over `pandas` (single-thread, slow).
-3. Build ML pipelines and models in Python notebooks over dbt Python. Use Snowpark:
-   - Internal stages to store preproccesing pipelines.
-   - Model registry to store ML models.
-4. Use dbt Python to call ML pipelines and models from Snowflake. dbt Python great to *deploy ML models*, still clunky too *develop ML models*.
-
-## Setup
-1. Create a new Snowflake account (you'll need ACCOUNTADMIN access). [Trial accounts](https://www.snowflake.com/free-trial/) are free for 30 days.
-   - Already have a Snowflake account? Use it instead - be sure to review `setup/f1_snowflake_setup.sql` in step `3.` before running.
-2. Login to Snowflake. Under `Admin > Billing & Terms`, click `Enable > Acknowledge & Continue` to enable Anaconda Python Packages to run in Snowflake.
-3. Open a new SQL worksheet, copy the script from `setup/f1_snowflake_setup.sql` into the worksheet. Select all the code in the worksheet and run it.
-4. Open a new SQL worksheet, copy the script from `setup/f1_snowflake_load_data.sql.sql` into the worksheet. Select all the code in the worksheet and run it.
+## Key Learning
+From this experience, I've modified my worflow from steps in the dbt-labs. My steps are:
+1. Uses SQL to build features over Python. Faster, easier to debug, easier to share with others.
+2. Build preprocessing pipelines and ML models in Python notebooks, not dbt Python models. The reasons for this are:
+   - Notebooks are better for *developing ML models*, a process that is iterative and mixes code, stats, and data visualiaztion.
+   - Uses the `snowflake-snowpark-python` and `snowflake-ml-python` libraries (optimized, parallel, fast) over `pandas` (single-thread, slow) to develop preprocessing pipelines and ML models.
+   - Save the preprocessing pipelines to a Snowflake internal stage so it can be called from dbt Python models.
+   - Save the ML models to the Snowflake model registry so it can be called from dbt Python models.
+3. Use dbt Python to *deploy* our ML models and keep them part of the dbt DAG and allowing for docs, tests, and lineage to be tracked.
 
 ## Outline
 This demo covers the following steps:
@@ -36,6 +19,7 @@ This demo covers the following steps:
    - Stage the raw data (renames, data type casting, etc.).
    - Create intermediate tables for feature engineering.
    - Create a data mart with fact and dimension tables.
+   - Freate feature tables as input for ML models.
 4. Developing ML pipelines and models in Python notebooks to:
    - Preprocessing data.
    - Training and testing ML models.
