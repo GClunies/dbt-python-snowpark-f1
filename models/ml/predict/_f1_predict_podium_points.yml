@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: f1_predict_podium_points
+    description: >-
+      Predict whether a driver will finish on the podium, in the points
+      (top 10), or outside the points (outside top 10) in a Formula 1 race.
+    columns:
+      - name: race_year
+        type: integer
+        description: The race year.
+
+      - name: circuit_name
+        type: string
+        description: The name of the circuit
+
+      - name: grid
+        type: integer
+        description: The driver's starting position on the grid.
+
+      - name: constructor_name
+        type: string
+        description: The constructor of the driver's car.
+
+      - name: driver
+        type: string
+        description: The driver's name.
+
+      - name: drivers_age_years
+        type: integer
+        description: The driver's age in years.
+
+      - name: driver_confidence
+        type: float
+        description: A metric capturing the driver confidence [0, 1].
+
+      - name: constructor_reliability
+        type: float
+        description: A metric capturing the constructor reliability [0, 1].
+
+      - name: total_pit_stops_per_race
+        type: integer
+        description: The total number of pit stops the driver made in a race.
+
+      - name: predicted_position_label
+        type: string
+        description: >-
+          The predicted position label (0 = podium, 1 = points, 2 = outside the
+          points).
